@@ -3,7 +3,6 @@
 // ========================================================
 
 /**
- * JAVASCRIPT WORKSPACE 1 - Owned Fully By: [Teammate 1 Name]
  * Task: Rule 1 - Length verification condition check
  */
 function runRuleOne(pwd) {
@@ -11,7 +10,6 @@ function runRuleOne(pwd) {
 }
 
 /**
- * JAVASCRIPT WORKSPACE 2 - Owned Fully By: [Teammate 2 Name]
  * Task: Rule 2 - Checking if a numeric digit exists
  */
 function runRuleTwo(pwd) {
@@ -19,13 +17,26 @@ function runRuleTwo(pwd) {
 }
 
 /**
- * JAVASCRIPT WORKSPACE 3 - Owned Fully By: [Teammate 3 Name]
- * Task: Rule 3 - Calculating if the string digits total 15
+ * Task: Rule 3 - Checking if an uppercase letter exists
  */
 function runRuleThree(pwd) {
+    return /[A-Z]/.test(pwd);
+}
+
+/**
+ * Task: Rule 4 - Checking if a special character exists
+ */
+function runRuleFour(pwd) {
+    return /[^a-zA-Z0-9]/.test(pwd);
+}
+
+/**
+ * Task: Rule 3 - Calculating if the string digits total 25
+ */
+function runRuleFive(pwd) {
     const digits = pwd.match(/\d/g) || [];
     const sum = digits.reduce((accumulator, current) => accumulator + Number(current), 0);
-    return sum === 15;
+    return sum === 25;
 }
 
 
@@ -34,15 +45,16 @@ function runRuleThree(pwd) {
 // ========================================================
 
 /**
- * JAVASCRIPT WORKSPACE 5 - Owned Fully By: [Teammate 5 Name]
  * Task: Live Input Tracker, DOM Generation, and localStorage Saves
  */
 
-// Centralised Array mapping our exactly 3 rules
+// Centralised Array mapping our 5 rules
 const rulesList = [
     { id: 1, description: "Your password must be at least 5 characters long.", check: runRuleOne },
-    { id: 2, description: "Your password must include at least one number.", check: runRuleTwo },
-    { id: 3, description: "The digits in your password must add up to exactly 15.", check: runRuleThree }
+    { id: 2, description: "Your password must include a number.", check: runRuleTwo },
+    { id: 3, description: "Your password must include an uppercase letter.", check: runRuleThree },
+    { id: 4, description: "Your password must include a special character.", check: runRuleFour },
+    { id: 5, description: "The digits in your password must add up to exactly 25.", check: runRuleFive }
 ];
 
 const passwordInput = document.getElementById("password-input");
