@@ -39,6 +39,93 @@ function runRuleFive(pwd) {
     return sum === 25;
 }
 
+/**
+ * Helper function for rule 8 to convert a Roman Numeral character to its numeric value
+ */
+function getRomanValueForRuleEight(char) {
+    if (char === 'I') return 1;
+    if (char === 'V') return 5;
+    if (char === 'X') return 10;
+    if (char === 'L') return 50;
+    if (char === 'C') return 100;
+    if (char === 'D') return 500;
+    if (char === 'M') return 1000;
+    return 0;
+}
+
+/**
+ * Task: Rule 8 - The Roman numerals in your password should multiply to 35
+ */
+function runRuleEight(pwd) {
+    var matches = pwd.match(/[IVXLCDM]+/g);
+    if (!matches) return false;
+
+    var totalProduct = 1;
+    var foundAny = false;
+
+    for (var i = 0; i < matches.length; i++) {
+        var romanStr = matches[i];
+        var numericVal = 0;
+        
+        for (var j = 0; j < romanStr.length; j++) {
+            var current = getRomanValueForRuleEight(romanStr[j]);
+            var next = getRomanValueForRuleEight(romanStr[j + 1]);
+            if (next && current < next) {
+                numericVal -= current;
+            } else {
+                numericVal += current;
+            }
+        }
+        
+        if (numericVal > 0) {
+            totalProduct *= numericVal;
+            foundAny = true;
+        }
+    }
+
+    return foundAny && (totalProduct === 35);
+}
+
+/**
+ * Task: Rule 9 - Your password must include the next line of code needed for this program (simple HTML)
+ */
+function runRuleNine(pwd) {
+    var hasDiv = pwd.indexOf("<div>") !== -1 || pwd.indexOf("</div>") !== -1;
+    var hasP = pwd.indexOf("<p>") !== -1 || pwd.indexOf("</p>") !== -1;
+    var hasSpan = pwd.indexOf("<span>") !== -1 || pwd.indexOf("</span>") !== -1;
+    return hasDiv || hasP || hasSpan;
+}
+
+
+/**
+ * Task: Rule 22 - Your password should include Allan's favourite exercise all lowercase letters (Hint: Session 14)
+ */
+function runRuleTwentyTwo(pwd) {
+    var lowerPwd = pwd.toLowerCase();
+    return lowerPwd.indexOf("mydate") !== -1;
+}
+
+/**
+ * Task: Rule 23 - Password must contain a palindrome (at least 3 characters long)
+ */
+function runRuleTwentyThree(pwd) {
+    var lowerPwd = pwd.toLowerCase();
+    var length = lowerPwd.length;
+
+    for (var i = 0; i < length; i++) {
+        for (var j = i + 3; j <= length; j++) {
+            var sub = lowerPwd.substring(i, j);
+            var reversed = "";
+            for (var k = sub.length - 1; k >= 0; k--) {
+                reversed += sub[k];
+            }
+            if (sub === reversed) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 // ========================================================
 // 👤 TEAMMATE 5: CORE ENGINE & LOCAL STORAGE ENGINE
@@ -54,7 +141,12 @@ const rulesList = [
     { id: 2, description: "Your password must include a number.", check: runRuleTwo },
     { id: 3, description: "Your password must include an uppercase letter.", check: runRuleThree },
     { id: 4, description: "Your password must include a special character.", check: runRuleFour },
-    { id: 5, description: "The digits in your password must add up to exactly 25.", check: runRuleFive }
+    { id: 5, description: "The digits in your password must add up to exactly 25.", check: runRuleFive },
+    { id: 8, description: "The Roman numerals in your password should multiply to 35.", check: runRuleEight },
+    { id: 9, description: "Your password must include the next line of code needed for this program (simple HTML).", check: runRuleNine },
+    { id: 22, description: "Your password should include Allan's favourite exercise, all lowercase letters.", check: runRuleTwentyTwo },
+    { id: 23, description: "Your password must contain a palindrome (at least 3 characters).", check: runRuleTwentyThree }
+
 ];
 
 const passwordInput = document.getElementById("password-input");
