@@ -1,7 +1,3 @@
-// ========================================================
-// 👤 TEAMMATES 1-3: SEPARATE PASSWORD VALIDATION WORKSPACES
-// ========================================================
-
 /**
  * Task: Rule 1 - Length verification condition check
  */
@@ -142,10 +138,6 @@ function runRuleTwentyThree(pwd) {
     }
     return false;
 }
-
-// ========================================================
-// 👤 TEAMMATE 5: CORE ENGINE & LOCAL STORAGE ENGINE
-// ========================================================
 
 /**
  * Task: Live Input Tracker, DOM Generation, and localStorage Saves
