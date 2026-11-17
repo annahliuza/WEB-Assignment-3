@@ -83,13 +83,11 @@ function runRuleEight(pwd) {
 }
 
 /**
- * Task: Rule 9 - Your password must include the next line of code needed for this program (simple HTML)
+ * Task: Rule 9 - Your password must include the HTML line of code needed for making or closing a new paragraph 
  */
 function runRuleNine(pwd) {
-    var hasDiv = pwd.indexOf("<div>") !== -1 || pwd.indexOf("</div>") !== -1;
     var hasP = pwd.indexOf("<p>") !== -1 || pwd.indexOf("</p>") !== -1;
-    var hasSpan = pwd.indexOf("<span>") !== -1 || pwd.indexOf("</span>") !== -1;
-    return hasDiv || hasP || hasSpan;
+    return hasP;
 }
 
 /**
