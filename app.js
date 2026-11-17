@@ -1,5 +1,6 @@
 /**
  * Rule 1 - Length verification condition check
+ Jade
  */
 function runRuleOne(pwd) {
     return pwd.length >= 5;
@@ -7,6 +8,7 @@ function runRuleOne(pwd) {
 
 /**
  * Rule 2 - Checking if a numeric digit exists
+ Jade
  */
 function runRuleTwo(pwd) {
     return /\d/.test(pwd);
@@ -14,6 +16,7 @@ function runRuleTwo(pwd) {
 
 /**
  * Rule 3 - Checking if an uppercase letter exists
+ Jade
  */
 function runRuleThree(pwd) {
     return /[A-Z]/.test(pwd);
@@ -28,6 +31,7 @@ function runRuleFour(pwd) {
 
 /**
  * Rule 5 - Calculating if the string digits total 25
+ Jade
  */
 function runRuleFive(pwd) {
     const digits = pwd.match(/\d/g) || [];
@@ -92,6 +96,7 @@ function runRuleNine(pwd) {
 
 /**
  * Rule 20 - Checking if the length is contained in the string
+ Jade
  */
 function runRuleTwenty(pwd) {
     const len = String(pwd.length);
@@ -100,6 +105,7 @@ function runRuleTwenty(pwd) {
 
 /**
  * Rule 21 - Checking if the length is a prime number
+ Jade
  */
 function runRuleTwentyOne(pwd) {
     const n = str.length;
