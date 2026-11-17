@@ -1,2 +1,6 @@
 PROBLEMS:
 The digits in your password must add up to exactly 25. -- doesn't work
+
+Rule 22 + Rule 16
+Rule 22 requires mydate in lowercase, but Rule 16 requires every vowel to be uppercase.
+mydate contains lowercase vowels. -- makes creating password imposiible.
