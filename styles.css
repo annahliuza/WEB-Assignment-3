@@ -1,1 +1,42 @@
+/*
+
+*/
+
+* {
+    font-family: "Kanchenjunga", normal;
+    color: #25165F;
+    background-color: #f7f3eb;
+}
+
+body
+{
+    background-color: #f7f3eb;
+    font-family: "Kanchenjunga", normal;
+    font-weight: 400;
+}
+
+
+.kanchenjunga-regular {
+  font-family: "Kanchenjunga", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kanchenjunga-medium {
+  font-family: "Kanchenjunga", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.kanchenjunga-semibold {
+  font-family: "Kanchenjunga", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.kanchenjunga-bold {
+  font-family: "Kanchenjunga", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 
