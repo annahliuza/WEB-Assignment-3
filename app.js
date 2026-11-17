@@ -98,14 +98,6 @@ function runRuleTwenty(pwd) {
     return pwd.includes(len);
 }
 
-/**
- * Task: Rule 21 - Checking if the string digits total the string length
- */
-function runRuleTwentyOne(pwd) {
-    const digits = pwd.match(/\d/g) || [];
-    const sum = digits.reduce((accumulator, current) => accumulator + Number(current), 0);
-    return sum === pwd.length;
-}
 
 /**
  * Task: Rule 22 - Your password should include Allan's favourite exercise all lowercase letters (Hint: Session 14)
@@ -151,7 +143,7 @@ const rulesList = [
     { id: 8, description: "The Roman numerals in your password should multiply to 35.", check: runRuleEight },
     { id: 9, description: "Your password must include the next line of code needed for this program (simple HTML).", check: runRuleNine },
     { id: 20, description: "Your password must include the total password length.", check: runRuleTwenty },
-    { id: 21, description: "The digits in your password must add up to the total password length.", check: runRuleTwentyOne },
+    //{ id: 21, description: "The digits in your password must add up to the total password length.", check: runRuleTwentyOne },
     { id: 22, description: "Your password should include Allan's favourite exercise, all lowercase letters.", check: runRuleTwentyTwo },
     { id: 23, description: "Your password must contain a palindrome (at least 3 characters).", check: runRuleTwentyThree }
 
