@@ -24,7 +24,7 @@ function runRuleFour(pwd) {
     return /[^a-zA-Z0-9]/.test(pwd);
 }
 
-// Rule 5 - Calculating if the string digits total 25
+// Rule 5 - Calculating if the string digits total 55
 // Responsible: Sofia
 function runRuleFive(pwd) {
     const digits = pwd.match(/\d/g) || [];
