@@ -98,11 +98,16 @@ function runRuleNine(pwd) {
 // Rule 10 - 🐈 This is Line’s cat Sofus. Please put him in your password and keep him safe.
 // Responsible: Anna
 
-
+function runRuleTen(pwd){
+    return pwd.includes("Sofus");
+}
 
 // Rule 11 - Sofus is hungry! Please don’t forget to feed him one 🐁and one🐟.
 // Responsible: Anna
 
+function runRuleEleven(pwd){
+    return pwd.includes("🐁") && ("🐟");
+}
 
 
 // Rule 12 - A sacrifice must be made. Pick two letters that you will no longer be able to use.
@@ -207,6 +212,17 @@ function runRuleTwentyThree(pwd) {
     return false;
 }
 
+//Rule 24 - Your password must contain the third password you entered.
+//Responsible: Anna
+
+function runRuleTwentyFour(pwd){
+    const thirdPassword = local.Storage.getItem("third_password");
+    if (thirdPassword===null || thirdPassword === ""){
+        return false;
+    }
+    return pwd.includes(thirdPassword);
+}
+    
 // Centralised Array mapping our 25 rules
 const rulesList = [
     { id: 1, description: "Your password must be at least 5 characters long.", check: runRuleOne },
@@ -217,6 +233,8 @@ const rulesList = [
     { id: 7, description: "Your password must include a roman numeral.", check: runRuleSeven },
     { id: 8, description: "The Roman numerals in your password should multiply to 35.", check: runRuleEight },
     { id: 9, description: "Your password must include the HTML line of code needed for making or closing a new paragraph.", check: runRuleNine },
+    { id: 10, description: "🐈 This is Line’s cat Sofus. Please put him in your password and keep him safe.", check: runRuleTen },
+    { id: 11, description: "Sofus is hungry! Please don’t forget to feed him one 🐁and one🐟.", check: runRuleEleven },
     { id: 14, description: `Your password must include this color in hex: ${targetColor}`, check: runRuleColor },
     { id: 15, description: "Password must contain the capital of Denmark.", check: runRuleDenmarkCapital },
     { id: 16, description: "Every vowel must be uppercase.", check: runRuleVowelsUppercase },
@@ -226,7 +244,8 @@ const rulesList = [
     { id: 20, description: "Your password must include the total password length.", check: runRuleTwenty },
     { id: 21, description: "Your password length must be a prime number.", check: runRuleTwentyOne },
     { id: 22, description: "Your password should include Allan's favourite exercise, all lowercase letters.", check: runRuleTwentyTwo },
-    { id: 23, description: "Your password must contain a palindrome (at least 3 characters).", check: runRuleTwentyThree }
+    { id: 23, description: "Your password must contain a palindrome (at least 3 characters).", check: runRuleTwentyThree },
+    { id: 24, desctiption: "Your password must contain the third password you entered.", check: runRuleTwentyFour }
 ];
 
 const passwordInput = document.getElementById("password-input");
@@ -278,6 +297,20 @@ function processPasswordGameLoop() {
 
 // Map event binding handles
 passwordInput.addEventListener("input", processPasswordGameLoop);
+//Saving third password
+passwordInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        const password = passwordInput.value;
+
+        if (localStorage.getItem("password_one") === null) {
+            localStorage.setItem("password_one", password);
+        } else if (localStorage.getItem("password_two") === null) {
+            localStorage.setItem("password_two", password);
+        } else if (localStorage.getItem("third_password") === null) {
+            localStorage.setItem("third_password", password);
+        }
+    }
+});
 
 // Execution trigger to initialize the application interface loop
 processPasswordGameLoop();
