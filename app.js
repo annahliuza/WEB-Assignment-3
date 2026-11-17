@@ -29,7 +29,7 @@ function runRuleFour(pwd) {
 function runRuleFive(pwd) {
     const digits = pwd.match(/\d/g) || [];
     const sum = digits.reduce((accumulator, current) => accumulator + Number(current), 0);
-    return sum === 40;
+    return sum === 55;
 }
 
 // Rule 6 - Your password must include a month of the year.
@@ -213,7 +213,7 @@ const rulesList = [
     { id: 2, description: "Your password must include a number.", check: runRuleTwo },
     { id: 3, description: "Your password must include an uppercase letter.", check: runRuleThree },
     { id: 4, description: "Your password must include a special character.", check: runRuleFour },
-    { id: 5, description: "The digits in your password must add up to exactly 40.", check: runRuleFive },
+    { id: 5, description: "The digits in your password must add up to exactly 55.", check: runRuleFive },
     { id: 7, description: "Your password must include a roman numeral.", check: runRuleSeven },
     { id: 8, description: "The Roman numerals in your password should multiply to 35.", check: runRuleEight },
     { id: 9, description: "Your password must include the HTML line of code needed for making or closing a new paragraph.", check: runRuleNine },
