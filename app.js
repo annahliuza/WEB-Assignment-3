@@ -39,6 +39,11 @@ function runRuleFive(pwd) {
     return sum === 25;
 }
 
+// Rule 7 - Your password must include a roman numeral.
+function runRuleSeven(pwd){
+   return /[IVXLCDM]/.test(pwd);
+}
+
 /**
  * Helper function for rule 8 to convert a Roman Numeral character to its numeric value
  */
