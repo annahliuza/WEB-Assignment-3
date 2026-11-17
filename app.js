@@ -6,7 +6,7 @@ function runRuleOne(pwd) {
 }
 
 // Rule 2 - Checking if a numeric digit exists
-// Responsible: Jade
+// Responsible: Anna
 
 function runRuleTwo(pwd) {
     return /\d/.test(pwd);
@@ -25,21 +25,23 @@ function runRuleFour(pwd) {
 }
 
 // Rule 5 - Calculating if the string digits total 25
-// Responsible: Jade
+// Responsible: Sofia
 function runRuleFive(pwd) {
     const digits = pwd.match(/\d/g) || [];
     const sum = digits.reduce((accumulator, current) => accumulator + Number(current), 0);
     return sum === 25;
 }
 
+// Rule 6 - Your password must include a month of the year.
+// Responsible: 
+
 // Rule 7 - Your password must include a roman numeral.
+// Responsible: Alisia
 function runRuleSeven(pwd){
    return /[IVXLCDM]/.test(pwd);
 }
 
-/**
- * Helper function for rule 8 to convert a Roman Numeral character to its numeric value
- */
+// Helper function for rule 8 to convert a Roman Numeral character to its numeric value
 function getRomanValueForRuleEight(char) {
     if (char === 'I') return 1;
     if (char === 'V') return 5;
@@ -51,9 +53,8 @@ function getRomanValueForRuleEight(char) {
     return 0;
 }
 
-/**
- * Rule 8 - The Roman numerals in your password should multiply to 35
- */
+// Rule 8 - The Roman numerals in your password should multiply to 35
+// Responsible: Ionela
 function runRuleEight(pwd) {
     var matches = pwd.match(/[IVXLCDM]+/g);
     if (!matches) return false;
@@ -84,27 +85,22 @@ function runRuleEight(pwd) {
     return foundAny && (totalProduct === 35);
 }
 
-/**
- * Rule 9 - Your password must include the HTML line of code needed for making or closing a new paragraph 
- */
+// Rule 9 - Your password must include the HTML line of code needed for making or closing a new paragraph 
+// Responsible: Ionela
 function runRuleNine(pwd) {
     var hasP = pwd.indexOf("<p>") !== -1 || pwd.indexOf("</p>") !== -1;
     return hasP;
 }
 
-/**
- * Rule 20 - Checking if the length is contained in the string
- Jade
- */
+// Rule 20 - Checking if the length is contained in the string
+// Responsible: Jade
 function runRuleTwenty(pwd) {
     const len = String(pwd.length);
     return pwd.includes(len);
 }
 
-/**
- * Rule 21 - Checking if the length is a prime number
- Jade
- */
+// Rule 21 - Checking if the length is a prime number
+// Responsible: Jade
 function runRuleTwentyOne(pwd) {
     const n = str.length;
     if (n < 2) return false;
