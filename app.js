@@ -92,6 +92,48 @@ function runRuleNine(pwd) {
     return hasP;
 }
 
+// Rule 14 - Your password must include this color in hex. (randomly generated)
+// Responsible: Alisia
+const targetColor = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+function runRuleColor(pwd) {
+   // Checks if the password contains the hex code (case-insensitive)
+   return pwd.toLowerCase().includes(targetColor.toLowerCase());
+}
+
+// Rule 15 - Password must contain the capital of Denmark
+// Responsible: Alisia
+function runRuleDenmarkCapital(pwd) {
+   return /(copenhagen|københavn)/i.test(pwd);
+}
+
+// Rule 16 - Every vowel must be uppercase.
+// Responsible: Alisia
+function runRuleVowelsUppercase(pwd) {
+   // Returns false if any lowercase vowel is found
+   return !/[aeiou]/.test(pwd);
+}
+
+// Rule 17 - Every consonant must be lowercase.
+// Responsible: Alisia
+function runRuleConsonantsLowercase(pwd) {
+   // Returns false if any uppercase consonant is found
+   return !/[BCDFGHJKLMNPQRSTVWXYZ]/.test(pwd);
+}
+
+// Rule 18 - The password must contain a day of the week in Danish
+// Responsible: Alisia
+function runRuleDanishDay(pwd) {
+   return /(mandag|tirsdag|onsdag|torsdag|fredag|lørdag|søndag)/i.test(pwd);
+}
+
+
+// Rule 19 - The password must include one of the colors in the Danish flag
+// Responsible: Alisia
+function runRuleDanishFlagColor(pwd) {
+   return /(red|white|rød|hvid)/i.test(pwd);
+}
+
+
 // Rule 20 - Checking if the length is contained in the string
 // Responsible: Jade
 function runRuleTwenty(pwd) {
@@ -112,17 +154,17 @@ function runRuleTwentyOne(pwd) {
 
 
 
-/**
- * Rule 22 - Your password should include Allan's favourite exercise all lowercase letters (Hint: Session 14)
- */
+// Rule 22 - Your password should include Allan's favourite exercise all lowercase letters (Hint: Session 14)
+// Responsible: Ionela
+
 function runRuleTwentyTwo(pwd) {
     var lowerPwd = pwd.toLowerCase();
     return lowerPwd.indexOf("mydate") !== -1;
 }
 
-/**
- * Rule 23 - Password must contain a palindrome (at least 3 characters long)
- */
+// Rule 23 - Password must contain a palindrome (at least 3 characters long)
+// Responsible: Ionela
+
 function runRuleTwentyThree(pwd) {
     var lowerPwd = pwd.toLowerCase();
     var length = lowerPwd.length;
@@ -149,13 +191,19 @@ const rulesList = [
     { id: 3, description: "Your password must include an uppercase letter.", check: runRuleThree },
     { id: 4, description: "Your password must include a special character.", check: runRuleFour },
     { id: 5, description: "The digits in your password must add up to exactly 25.", check: runRuleFive },
+    { id: 7, description: "Your password must include a roman numeral.", check: runRuleSeven },
     { id: 8, description: "The Roman numerals in your password should multiply to 35.", check: runRuleEight },
-    { id: 9, description: "Your password must include the next line of code needed for this program (simple HTML).", check: runRuleNine },
+    { id: 9, description: "Your password must include the HTML line of code needed for making or closing a new paragraph.", check: runRuleNine },
+    { id: 14, description: `Your password must include this color in hex: ${targetColor}`, check: runRuleColor },
+    { id: 15, description: "Password must contain the capital of Denmark.", check: runRuleDenmarkCapital },
+    { id: 16, description: "Every vowel must be uppercase.", check: runRuleVowelsUppercase },
+    { id: 17, description: "Every consonant must be lowercase.", check: runRuleConsonantsLowercase },
+    { id: 18, description: "The password must contain a day of the week in Danish.", check: runRuleDanishDay },
+    { id: 19, description: "The password must include one of the colors in the Danish flag.", check: runRuleDanishFlagColor },
     { id: 20, description: "Your password must include the total password length.", check: runRuleTwenty },
     { id: 21, description: "Your password length must be a prime number.", check: runRuleTwentyOne },
     { id: 22, description: "Your password should include Allan's favourite exercise, all lowercase letters.", check: runRuleTwentyTwo },
     { id: 23, description: "Your password must contain a palindrome (at least 3 characters).", check: runRuleTwentyThree }
-
 ];
 
 const passwordInput = document.getElementById("password-input");
