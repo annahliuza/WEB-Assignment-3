@@ -27,7 +27,7 @@ function runRuleFour(pwd) {
 }
 
 /**
- * Task: Rule 3 - Calculating if the string digits total 25
+ * Task: Rule 5 - Calculating if the string digits total 25
  */
 function runRuleFive(pwd) {
     const digits = pwd.match(/\d/g) || [];
