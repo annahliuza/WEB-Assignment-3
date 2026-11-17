@@ -1,33 +1,33 @@
 /**
- * Task: Rule 1 - Length verification condition check
+ * Rule 1 - Length verification condition check
  */
 function runRuleOne(pwd) {
     return pwd.length >= 5;
 }
 
 /**
- * Task: Rule 2 - Checking if a numeric digit exists
+ * Rule 2 - Checking if a numeric digit exists
  */
 function runRuleTwo(pwd) {
     return /\d/.test(pwd);
 }
 
 /**
- * Task: Rule 3 - Checking if an uppercase letter exists
+ * Rule 3 - Checking if an uppercase letter exists
  */
 function runRuleThree(pwd) {
     return /[A-Z]/.test(pwd);
 }
 
 /**
- * Task: Rule 4 - Checking if a special character exists
+ * Rule 4 - Checking if a special character exists
  */
 function runRuleFour(pwd) {
     return /[^a-zA-Z0-9]/.test(pwd);
 }
 
 /**
- * Task: Rule 5 - Calculating if the string digits total 25
+ * Rule 5 - Calculating if the string digits total 25
  */
 function runRuleFive(pwd) {
     const digits = pwd.match(/\d/g) || [];
@@ -50,7 +50,7 @@ function getRomanValueForRuleEight(char) {
 }
 
 /**
- * Task: Rule 8 - The Roman numerals in your password should multiply to 35
+ * Rule 8 - The Roman numerals in your password should multiply to 35
  */
 function runRuleEight(pwd) {
     var matches = pwd.match(/[IVXLCDM]+/g);
@@ -83,7 +83,7 @@ function runRuleEight(pwd) {
 }
 
 /**
- * Task: Rule 9 - Your password must include the HTML line of code needed for making or closing a new paragraph 
+ * Rule 9 - Your password must include the HTML line of code needed for making or closing a new paragraph 
  */
 function runRuleNine(pwd) {
     var hasP = pwd.indexOf("<p>") !== -1 || pwd.indexOf("</p>") !== -1;
@@ -91,16 +91,29 @@ function runRuleNine(pwd) {
 }
 
 /**
- * Task: Rule 20 - Checking if the length is contained in the string
+ * Rule 20 - Checking if the length is contained in the string
  */
 function runRuleTwenty(pwd) {
     const len = String(pwd.length);
     return pwd.includes(len);
 }
 
+/**
+ * Rule 21 - Checking if the length is a prime number
+ */
+function runRuleTwentyOne(pwd) {
+    const n = str.length;
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
+
 
 /**
- * Task: Rule 22 - Your password should include Allan's favourite exercise all lowercase letters (Hint: Session 14)
+ * Rule 22 - Your password should include Allan's favourite exercise all lowercase letters (Hint: Session 14)
  */
 function runRuleTwentyTwo(pwd) {
     var lowerPwd = pwd.toLowerCase();
@@ -108,7 +121,7 @@ function runRuleTwentyTwo(pwd) {
 }
 
 /**
- * Task: Rule 23 - Password must contain a palindrome (at least 3 characters long)
+ * Rule 23 - Password must contain a palindrome (at least 3 characters long)
  */
 function runRuleTwentyThree(pwd) {
     var lowerPwd = pwd.toLowerCase();
@@ -129,10 +142,6 @@ function runRuleTwentyThree(pwd) {
     return false;
 }
 
-/**
- * Task: Live Input Tracker, DOM Generation, and localStorage Saves
- */
-
 // Centralised Array mapping our 25 rules
 const rulesList = [
     { id: 1, description: "Your password must be at least 5 characters long.", check: runRuleOne },
@@ -143,7 +152,7 @@ const rulesList = [
     { id: 8, description: "The Roman numerals in your password should multiply to 35.", check: runRuleEight },
     { id: 9, description: "Your password must include the next line of code needed for this program (simple HTML).", check: runRuleNine },
     { id: 20, description: "Your password must include the total password length.", check: runRuleTwenty },
-    //{ id: 21, description: "The digits in your password must add up to the total password length.", check: runRuleTwentyOne },
+    { id: 21, description: "Your password length must be a prime number.", check: runRuleTwentyOne },
     { id: 22, description: "Your password should include Allan's favourite exercise, all lowercase letters.", check: runRuleTwentyTwo },
     { id: 23, description: "Your password must contain a palindrome (at least 3 characters).", check: runRuleTwentyThree }
 
