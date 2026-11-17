@@ -136,11 +136,11 @@ function runRuleVowelsUppercase(pwd) {
    return !/[aeiou]/.test(pwd);
 }
 
-// Rule 17 - Every consonant must be lowercase.
+// Rule 17 - Every consonant not in a roman number must be lowercase.
 // Responsible: Alisia
 function runRuleConsonantsLowercase(pwd) {
    // Returns false if any uppercase consonant is found
-   return !/[BCDFGHJKLMNPQRSTVWXYZ]/.test(pwd);
+   return !/[BFGHJKNPQRSTWXYZ]/.test(pwd);
 }
 
 // Rule 18 - The password must contain a day of the week in Danish
@@ -220,7 +220,7 @@ const rulesList = [
     { id: 14, description: `Your password must include this color in hex: ${targetColor}`, check: runRuleColor },
     { id: 15, description: "Password must contain the capital of Denmark.", check: runRuleDenmarkCapital },
     { id: 16, description: "Every vowel must be uppercase.", check: runRuleVowelsUppercase },
-    { id: 17, description: "Every consonant must be lowercase.", check: runRuleConsonantsLowercase },
+    { id: 17, description: "Every consonant not in a roman numeral must be lowercase.", check: runRuleConsonantsLowercase },
     { id: 18, description: "The password must contain a day of the week in Danish.", check: runRuleDanishDay },
     { id: 19, description: "The password must include one of the colors in the Danish flag.", check: runRuleDanishFlagColor },
     { id: 20, description: "Your password must include the total password length.", check: runRuleTwenty },
