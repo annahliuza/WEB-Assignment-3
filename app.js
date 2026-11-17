@@ -1,38 +1,31 @@
-/**
- * Rule 1 - Length verification condition check
- Jade
- */
+
+//Rule 1 - Length verification condition check
+// Responsible: Jade
 function runRuleOne(pwd) {
     return pwd.length >= 5;
 }
 
-/**
- * Rule 2 - Checking if a numeric digit exists
- Jade
- */
+// Rule 2 - Checking if a numeric digit exists
+// Responsible: Jade
+
 function runRuleTwo(pwd) {
     return /\d/.test(pwd);
 }
 
-/**
- * Rule 3 - Checking if an uppercase letter exists
- Jade
- */
+// Rule 3 - Checking if an uppercase letter exists
+// Responsible: Jade
 function runRuleThree(pwd) {
     return /[A-Z]/.test(pwd);
 }
 
-/**
- * Rule 4 - Checking if a special character exists
- */
+// Rule 4 - Checking if a special character exists
+// Responsible: Jade
 function runRuleFour(pwd) {
     return /[^a-zA-Z0-9]/.test(pwd);
 }
 
-/**
- * Rule 5 - Calculating if the string digits total 25
- Jade
- */
+// Rule 5 - Calculating if the string digits total 25
+// Responsible: Jade
 function runRuleFive(pwd) {
     const digits = pwd.match(/\d/g) || [];
     const sum = digits.reduce((accumulator, current) => accumulator + Number(current), 0);
