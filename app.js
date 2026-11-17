@@ -33,7 +33,10 @@ function runRuleFive(pwd) {
 }
 
 // Rule 6 - Your password must include a month of the year.
-// Responsible: 
+// Responsible: Sofia
+
+
+
 
 // Rule 7 - Your password must include a roman numeral.
 // Responsible: Alisia
@@ -91,6 +94,26 @@ function runRuleNine(pwd) {
     var hasP = pwd.indexOf("<p>") !== -1 || pwd.indexOf("</p>") !== -1;
     return hasP;
 }
+
+// Rule 10 - 🐈 This is Line’s cat Sofus. Please put him in your password and keep him safe.
+// Responsible: Anna
+
+
+
+// Rule 11 - Sofus is hungry! Please don’t forget to feed him one 🐁and one🐟.
+// Responsible: Anna
+
+
+
+// Rule 12 - A sacrifice must be made. Pick two letters that you will no longer be able to use.
+// Responsible: Sofia
+
+
+
+// Rule 13 - You do not have enough time this semester; sacrifice one course that you will fail and go for a retake.
+// Responsible: Sofia
+
+
 
 // Rule 14 - Your password must include this color in hex. (randomly generated)
 // Responsible: Alisia
