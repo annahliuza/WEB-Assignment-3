@@ -1,2 +1,4 @@
 PROBLEMS:
 The digits in your password must add up to exactly 25. -- doesn't work
+
+The first version of saving passwords for rule 24 reqired pressing Enter, so it won't work correctly. Must be replaced with something that will save password automatically when the player passes rule 3.
