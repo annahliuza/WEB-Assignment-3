@@ -215,8 +215,8 @@ function runRuleTwentyThree(pwd) {
 //Rule 24 - Your password must contain the third password you entered.
 //Responsible: Anna
 function runRuleTwentyFour(pwd){
-    if(savedPasswords.length < 3) return false;
-    return pwd.toLowerCase().includes(savedPasswords[2].toLowerCase());
+    if (thirdPassword === null) return false;
+    return pwd.toLowerCase().includes(thirdPassword.toLowerCase());
 }
     
     
@@ -284,6 +284,11 @@ function processPasswordGameLoop() {
         }
     }
 
+    //Remember the password the first time rule 3 is passed (reule 24)
+    if (currentScore >=3 && thirdPassword === null){
+        thirdPassword = password;
+    }
+
     // Save peak milestone records down into browser's local cache
     if (currentScore > personalBest) {
         personalBest = currentScore;
@@ -295,16 +300,7 @@ function processPasswordGameLoop() {
 // Map event binding handles
 passwordInput.addEventListener("input", processPasswordGameLoop);
 
-//Saving three  passwords for rule 24
-let savedPasswords = [];
-
-passwordInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && savedPasswords.length < 3 && passwordInpur.value !=="") {
-        savedPasswords.push(passwordInput.value);
-        processPasswordGameLoop();
-    }
-});
-
+let thirdPassword = null;
 
 // Execution trigger to initialize the application interface loop
 processPasswordGameLoop();
