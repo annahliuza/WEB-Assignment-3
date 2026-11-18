@@ -98,14 +98,15 @@ function runRuleNine(pwd) {
 // Rule 10 - 🐈 This is Line’s cat Sofus. Please put him in your password and keep him safe.
 // Responsible: Anna
 function runRuleTen(pwd){
-    return pwd.includes("Sofus");
+    return /sofus/i.test(pwd);
 }
 
 
 // Rule 11 - Sofus is hungry! Please don’t forget to feed him one 🐁and one🐟.
 // Responsible: Anna
 function runRuleEleven(pwd){
-    return pwd.includes("🐁") && ("🐟");
+    return pwd.includes("🐁") && pwd.includes("🐟");
+}
 
 
 // Rule 12 - A sacrifice must be made. Pick two letters that you will no longer be able to use.
@@ -214,11 +215,8 @@ function runRuleTwentyThree(pwd) {
 //Rule 24 - Your password must contain the third password you entered.
 //Responsible: Anna
 function runRuleTwentyFour(pwd){
-    const thirdPassword = local.Storage.getItem("third_password");
-    if (thirdPassword===null || thirdPassword === ""){
-        return false;
-    }
-    return pwd.includes(thirdPassword);
+    if(savedPasswords.length < 3) return false;
+    return pwd.toLowerCase().includes(savedPasswords[2].toLowerCase());
 }
     
     
@@ -244,7 +242,7 @@ const rulesList = [
     { id: 21, description: "Your password length must be a prime number.", check: runRuleTwentyOne },
     { id: 22, description: "Your password should include Allan's favourite exercise, all lowercase letters.", check: runRuleTwentyTwo },
     { id: 23, description: "Your password must contain a palindrome (at least 3 characters).", check: runRuleTwentyThree },
-    { id: 24, desctiption: "Your password must contain the third password you entered.", check: runRuleTwentyFour }
+    { id: 24, description: "Your password must contain the third password you entered.", check: runRuleTwentyFour }
 ];
 
 const passwordInput = document.getElementById("password-input");
@@ -296,6 +294,17 @@ function processPasswordGameLoop() {
 
 // Map event binding handles
 passwordInput.addEventListener("input", processPasswordGameLoop);
+
+//Saving three  passwords for rule 24
+let savedPasswords = [];
+
+passwordInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && savedPasswords.length < 3 && passwordInpur.value !=="") {
+        savedPasswords.push(passwordInput.value);
+        processPasswordGameLoop();
+    }
+});
+
 
 // Execution trigger to initialize the application interface loop
 processPasswordGameLoop();
